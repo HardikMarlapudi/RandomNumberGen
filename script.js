@@ -19,7 +19,7 @@ submitBtn.onclick = function() {
     if (isNaN(guess)) {
     } if (guess === randomNumber) {
         attempts++;
-        attemptsDisplay.innerHTML = `Attempts: ${attempts}`;
+        attemptsDisplay.innerHTML = `attempts: ${attempts}`;
         display.innerHTML = "Wohoo, You guessed correctly!";
     } else if (guess < randomNumber) {
         attempts++;
