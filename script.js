@@ -1,7 +1,7 @@
 // RandomNumberGenerator in JavaScript
 
 // Selected elements
-const inputField = document.getElementById("number");
+const inputText = document.getElementById("number");
 const display = document.getElementById("display");
 const submitBtn = document.getElementById("submitBtn");
 const resetButton = document.getElementById("resetButton");
@@ -13,7 +13,7 @@ let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + min
 
 // Functionality to check the guess
 submitBtn.onclick = function() {
-    let guess = parseInt(inputField.value);
+    let guess = parseInt(inputText.value);
 
     if (isNaN(guess)) {
         display.innerHTML = "Please enter a valid number.";
