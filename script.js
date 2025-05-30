@@ -4,11 +4,12 @@
 const inputText = document.getElementById("number");
 const display = document.getElementById("display");
 const submitBtn = document.getElementById("submitBtn");
-const resetButton = document.getElementById("resetButton");
+const attemptsDisplay = document.getElementById("attempts");
 
 // Generates the random number
 let minNumber = 1;
 let maxNumber = 100;
+let attempts = 0;
 let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
 
 // Functionality to check the guess
@@ -16,20 +17,19 @@ submitBtn.onclick = function() {
     let guess = parseInt(inputText.value);
 
     if (isNaN(guess)) {
-        display.innerHTML = "Please enter a valid number.";
-    } else if (guess === randomNumber) {
+    } if (guess === randomNumber) {
+        attempts++;
+        attemptsDisplay.innerHTML = `Attempts: ${attempts}`;
         display.innerHTML = "Wohoo, You guessed correctly!";
-        resetButton.style.display = "block";
     } else if (guess < randomNumber) {
+        attempts++;
+        attemptsDisplay.innerHTML = `Attempts: ${attempts}`;
         display.innerHTML = "Too low! Try again.";
-    } else {
+    } else if (guess > randomNumber){
+        attempts++;
+        attemptsDisplay.innerHTML = `Attempts: ${attempts}`;
         display.innerHTML = "Too high! Try again.";
+    } else {
+        display.innerHTML = "Please enter a valid number.";
     }
-};
-
-// Reset function to start the game all over again
-resetBtn.onclick = function() {
-    randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
-    display.innerHTML = "";
-    resetBtn.style.display = "none"; // Hide reset button again
 };
